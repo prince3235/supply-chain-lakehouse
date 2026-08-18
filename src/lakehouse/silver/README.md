@@ -1,13 +1,34 @@
-# Silver Layer
+# Supply Chain Lakehouse — Silver Layer
 
-## Overview
-The Silver Layer provides clean, standardized, deduplicated, and business-validated datasets. It ingests data incrementally from the Bronze layer and ensures data quality.
+The Silver Layer is responsible for transforming raw, immutable Bronze data into clean, standardized, deduplicated, and business-validated datasets.
 
-## Execution
-The Silver pipeline is executed via `pipeline.py`.
+## Architecture
 
-## Data Quality
-- Schema tracking
-- Deduplication by Primary Key
-- Strict Not Null constraints for critical fields
-- Invalid records routed to `s3://<bucket>/quarantine/silver`
+- **`cleaner.py`**: Trims strings, normalizes NULL literals, and deduplicates records.
+- **`transformer.py`**: Casts data types to ensure schema conformity.
+- **`validator.py`**: Validates records against data quality constraints (NOT NULL, MIN, ENUM).
+- **`quarantine.py`**: Manages the isolation of invalid records.
+- **`pipeline.py`**: Orchestrates incremental, idempotent execution via Delta `MERGE`.
+- **`schemas.py`**: Defines the data contracts.
+
+## Data Quality Flow
+
+```text
+RAW BRONZE DATA
+       ↓
+   CLEANING
+       ↓
+TRANSFORMATION
+       ↓
+  VALIDATION
+       ↓
+  ┌─────────┐
+  │         │
+VALID    INVALID
+  ↓         ↓
+SILVER   QUARANTINE
+```
+
+## Testing
+Run local mock tests via:
+`PYTHONPATH="src/lakehouse/silver" pytest src/lakehouse/silver/tests/`
