@@ -1,0 +1,156 @@
+datasets:
+  products:
+    source: data/generated/clean/products
+    format: parquet
+    primary_key: product_id
+    partition_by:
+      - snapshot_date
+    required_columns:
+      - product_id
+      - category
+      - selling_price
+    destination_prefix: raw/products
+    enabled: true
+    incremental: true
+
+  stores:
+    source: data/generated/clean/stores
+    format: parquet
+    primary_key: store_id
+    partition_by:
+      - snapshot_date
+    required_columns:
+      - store_id
+      - region
+      - city
+    destination_prefix: raw/stores
+    enabled: true
+    incremental: true
+
+  warehouses:
+    source: data/generated/clean/warehouses
+    format: parquet
+    primary_key: warehouse_id
+    partition_by:
+      - snapshot_date
+    required_columns:
+      - warehouse_id
+      - city
+      - region
+    destination_prefix: raw/warehouses
+    enabled: true
+    incremental: true
+
+  suppliers:
+    source: data/generated/clean/suppliers
+    format: parquet
+    primary_key: supplier_id
+    partition_by:
+      - snapshot_date
+    required_columns:
+      - supplier_id
+      - reliability_score
+    destination_prefix: raw/suppliers
+    enabled: true
+    incremental: true
+
+  calendar:
+    source: data/generated/clean/calendar
+    format: parquet
+    primary_key: date
+    partition_by:
+      - snapshot_date
+    required_columns:
+      - date
+      - year
+      - month
+    destination_prefix: raw/calendar
+    enabled: true
+    incremental: true
+
+  weather:
+    source: data/generated/clean/weather
+    format: parquet
+    primary_key: weather_date
+    partition_by:
+      - year
+      - month
+      - day
+    required_columns:
+      - weather_date
+      - city
+      - temperature_avg
+    destination_prefix: raw/weather
+    enabled: true
+    incremental: true
+
+  sales:
+    source: data/generated/clean/sales
+    format: parquet
+    primary_key: transaction_id
+    partition_by:
+      - year
+      - month
+      - day
+    required_columns:
+      - transaction_id
+      - transaction_timestamp
+      - store_id
+      - product_id
+      - quantity
+      - total_amount
+    destination_prefix: raw/sales
+    enabled: true
+    incremental: true
+
+  inventory:
+    source: data/generated/clean/inventory
+    format: parquet
+    primary_key: inventory_id
+    partition_by:
+      - year
+      - month
+      - day
+    required_columns:
+      - inventory_id
+      - snapshot_timestamp
+      - product_id
+      - store_id
+      - available_quantity
+    destination_prefix: raw/inventory
+    enabled: true
+    incremental: true
+
+  shipments:
+    source: data/generated/clean/shipments
+    format: parquet
+    primary_key: shipment_id
+    partition_by:
+      - year
+      - month
+      - day
+    required_columns:
+      - shipment_id
+      - supplier_id
+      - product_id
+      - warehouse_id
+    destination_prefix: raw/shipments
+    enabled: true
+    incremental: true
+
+  returns:
+    source: data/generated/clean/returns
+    format: parquet
+    primary_key: return_id
+    partition_by:
+      - year
+      - month
+      - day
+    required_columns:
+      - return_id
+      - return_date
+      - transaction_id
+      - product_id
+    destination_prefix: raw/returns
+    enabled: true
+    incremental: true

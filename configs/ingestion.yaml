@@ -1,0 +1,11 @@
+ingestion:
+  aws_region: us-east-1
+  bucket_name: supply-chain-lakehouse-raw
+  environment: dev
+  dry_run: false
+  max_retries: 3
+  retry_delay: 5
+  checksum_algorithm: SHA-256
+  verification_enabled: true
+  quarantine_enabled: true
+  manifest_enabled: true

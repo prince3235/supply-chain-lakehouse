@@ -1,0 +1,13 @@
+# -----------------------------------------------------------------------------
+# Development Environment Variables
+# Copy this file to terraform.tfvars and customize.
+# DO NOT COMMIT terraform.tfvars to Git.
+# -----------------------------------------------------------------------------
+
+aws_region            = "us-east-1"
+project_name          = "supply-chain-lake"
+environment           = "dev"
+project_owner         = "data-engineering-team"
+cost_center           = "100-supply-chain"
+budget_limit          = "10.0"
+alert_email_addresses = ["admin@example.com"]

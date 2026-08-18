@@ -1,0 +1,42 @@
+# configs/data_generation.yaml
+# Configuration for Supply Chain Synthetic Data Generation
+
+global:
+  seed: 42
+  output_dir: "data/generated"
+  output_format: "parquet" # parquet or csv
+
+profiles:
+  small:
+    start_date: "2023-01-01"
+    end_date: "2023-01-31"
+    num_products: 10
+    num_stores: 2
+    num_warehouses: 1
+    num_suppliers: 3
+    base_daily_sales_prob: 0.2
+    
+  medium:
+    start_date: "2023-01-01"
+    end_date: "2023-06-30"
+    num_products: 100
+    num_stores: 10
+    num_warehouses: 2
+    num_suppliers: 10
+    base_daily_sales_prob: 0.1
+    
+  large:
+    start_date: "2022-01-01"
+    end_date: "2023-12-31"
+    num_products: 500
+    num_stores: 50
+    num_warehouses: 5
+    num_suppliers: 20
+    base_daily_sales_prob: 0.05
+
+quality:
+  # Configuration for the "dirty" pipeline
+  null_rate: 0.01
+  duplicate_rate: 0.005
+  outlier_rate: 0.002
+  invalid_reference_rate: 0.001

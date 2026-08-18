@@ -2,6 +2,12 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from src.cleaner import SilverCleaner
+import sys
+from unittest.mock import MagicMock
+
+# Mock PySpark functions that require active context
+sys.modules["pyspark.sql.functions"] = MagicMock()
+sys.modules["pyspark.sql.window"] = MagicMock()
 
 def test_normalize_strings_and_nulls():
     """Test that cleaner correctly identifies string columns and applies transformations."""
@@ -57,3 +63,4 @@ def test_deduplicate_fallback():
     
     cleaner.deduplicate(mock_df)
     assert mock_df.dropDuplicates.called
+

@@ -44,11 +44,11 @@ class GoldPipeline:
         try:
             if not DeltaTable.isDeltaTable(self.spark, gold_path):
                 logger.info(f"Creating Gold table {gold_table}")
-                df.write.format("delta").mode("overwrite").saveAsTable(gold_table)
+                df.write.format("delta").mode("overwrite").option("path", gold_path).saveAsTable(gold_table)
             else:
                 if not primary_keys:
                     logger.warning(f"No primary keys for {dataset_name}. Performing full overwrite!")
-                    df.write.format("delta").mode("overwrite").saveAsTable(gold_table)
+                    df.write.format("delta").mode("overwrite").option("path", gold_path).saveAsTable(gold_table)
                     return
                 
                 logger.info(f"Merging Gold table {gold_table} on keys {primary_keys}")

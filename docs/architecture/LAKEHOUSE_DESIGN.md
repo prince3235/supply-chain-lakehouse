@@ -365,3 +365,21 @@ Compute Usage
 **Version:** 1.0.0
 
 **Status:** Initial Design
+
+
+---
+
+## 20. Implementation Status
+
+### IMPLEMENTED:
+- AWS S3
+- Databricks
+- Unity Catalog
+- Bronze Delta
+
+### NOT IMPLEMENTED:
+- Silver
+- Gold
+- Warehouse
+- ML
+

@@ -1,0 +1,110 @@
+[
+  {
+    "batch_id": "batch_c2894ef3",
+    "timestamp": 1786955701.2190795,
+    "dataset": "calendar",
+    "source_file": "data/generated/clean\\calendar\\data.parquet",
+    "destination": "DRY_RUN",
+    "checksum": "9735086e2a877d1491866510e5859d35d56b5c6e4b0d0098844a7d6035146945",
+    "status": "DRY_RUN",
+    "row_count": 31,
+    "file_size": 7343,
+    "error_reason": null
+  },
+  {
+    "batch_id": "batch_c2894ef3",
+    "timestamp": 1786955701.2400203,
+    "dataset": "inventory",
+    "source_file": "data/generated/clean\\inventory\\data.parquet",
+    "destination": "DRY_RUN",
+    "checksum": "d105bd38b4ab7287adbb2757d99879e9a6c03a4a4236cb1b521c349c48450380",
+    "status": "DRY_RUN",
+    "row_count": 620,
+    "file_size": 33059,
+    "error_reason": null
+  },
+  {
+    "batch_id": "batch_c2894ef3",
+    "timestamp": 1786955701.2570896,
+    "dataset": "products",
+    "source_file": "data/generated/clean\\products\\data.parquet",
+    "destination": "DRY_RUN",
+    "checksum": "d601b8b3a701e05fad70be3799b2a1eab582133e8848f2eff9986a41db4d95ea",
+    "status": "DRY_RUN",
+    "row_count": 10,
+    "file_size": 7008,
+    "error_reason": null
+  },
+  {
+    "batch_id": "batch_c2894ef3",
+    "timestamp": 1786955701.271087,
+    "dataset": "returns",
+    "source_file": "data/generated/clean\\returns\\data.parquet",
+    "destination": "DRY_RUN",
+    "checksum": "d94f64a080a9192f3c4b2c3761483e513e578a982c9bfa9a0010f599f0764bed",
+    "status": "DRY_RUN",
+    "row_count": 3,
+    "file_size": 4978,
+    "error_reason": null
+  },
+  {
+    "batch_id": "batch_c2894ef3",
+    "timestamp": 1786955701.3050873,
+    "dataset": "sales",
+    "source_file": "data/generated/clean\\sales\\data.parquet",
+    "destination": "DRY_RUN",
+    "checksum": "c0d45cea37fe3a5acc7ee4a1a5284fc4bcb3a4a1b2b64eed62244dfd874bde61",
+    "status": "DRY_RUN",
+    "row_count": 144,
+    "file_size": 16930,
+    "error_reason": null
+  },
+  {
+    "batch_id": "batch_c2894ef3",
+    "timestamp": 1786955701.322091,
+    "dataset": "stores",
+    "source_file": "data/generated/clean\\stores\\data.parquet",
+    "destination": "DRY_RUN",
+    "checksum": "05c3273c860ee4dcdb9e5a490bb25f0a0e98518f021b4d06795c8b2a553d9b13",
+    "status": "DRY_RUN",
+    "row_count": 2,
+    "file_size": 6515,
+    "error_reason": null
+  },
+  {
+    "batch_id": "batch_c2894ef3",
+    "timestamp": 1786955701.3360908,
+    "dataset": "suppliers",
+    "source_file": "data/generated/clean\\suppliers\\data.parquet",
+    "destination": "DRY_RUN",
+    "checksum": "9194ec3d9602fcc3d0daf860dac67441a1182e3de9d2291b1bfb462512198650",
+    "status": "DRY_RUN",
+    "row_count": 9,
+    "file_size": 5571,
+    "error_reason": null
+  },
+  {
+    "batch_id": "batch_c2894ef3",
+    "timestamp": 1786955701.355614,
+    "dataset": "warehouses",
+    "source_file": "data/generated/clean\\warehouses\\data.parquet",
+    "destination": "DRY_RUN",
+    "checksum": "b3bcefdfbcfc341b059822b428e5fe125c25ab7c0df1ed0f405d9ae2c928bf20",
+    "status": "DRY_RUN",
+    "row_count": 1,
+    "file_size": 5734,
+    "error_reason": null
+  },
+  {
+    "batch_id": "batch_c2894ef3",
+    "timestamp": 1786955701.3713152,
+    "dataset": "weather",
+    "source_file": "data/generated/clean\\weather\\data.parquet",
+    "destination": "DRY_RUN",
+    "checksum": "7a960e45b8ebdd1c43f0f773938d7df0678c125baaf1e7c32b591a136a6e5771",
+    "status": "DRY_RUN",
+    "row_count": 62,
+    "file_size": 6690,
+    "error_reason": null
+  }
+]
