@@ -21,6 +21,9 @@ from src.training.validation import (
     cross_validate_temporal,
 )
 from src.training.train import train_and_evaluate_models
+from src.training.tracking import ExperimentTracker
+from src.training.registry import ModelRegistry, ModelStage
+from src.training.evaluator import ChampionChallengerEvaluator, PromotionDecision
 
 __all__ = [
     "calculate_mae",
@@ -35,4 +38,10 @@ __all__ = [
     "TemporalTimeSeriesSplit",
     "cross_validate_temporal",
     "train_and_evaluate_models",
+    "ExperimentTracker",
+    "ModelRegistry",
+    "ModelStage",
+    "ChampionChallengerEvaluator",
+    "PromotionDecision",
 ]
+
