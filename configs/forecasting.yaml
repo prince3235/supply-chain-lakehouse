@@ -1,0 +1,70 @@
+# Supply Chain Lakehouse — ML Forecasting Configuration
+
+version: 1.0.0
+task: demand_forecasting
+
+target:
+  name: daily_demand
+  source_column: total_daily_quantity
+  grain:
+    - product_id
+    - store_id
+    - demand_date
+
+horizons:
+  default_days: 14
+  supported:
+    - 7
+    - 14
+    - 30
+
+features:
+  lags: [1, 2, 3, 7, 14, 21, 30]
+  rolling_windows: [7, 14, 30]
+  temporal:
+    - day_of_week
+    - day_of_month
+    - week_of_year
+    - month
+    - quarter
+    - is_weekend
+    - sin_day_of_week
+    - cos_day_of_week
+  pricing:
+    - unit_price
+    - discount_percentage
+    - is_discounted
+  inventory:
+    - total_available
+    - current_safety_stock
+    - is_stockout
+    - inventory_to_safety_ratio
+
+models:
+  baseline:
+    naive_lag: lag_1
+    moving_average_window: 7
+  candidates:
+    random_forest:
+      n_estimators: 50
+      max_depth: 8
+      random_state: 42
+    gradient_boosting:
+      n_estimators: 50
+      max_depth: 4
+      learning_rate: 0.05
+      random_state: 42
+    ridge:
+      alpha: 1.0
+      random_state: 42
+
+validation:
+  strategy: temporal_split
+  holdout_days: 14
+  cross_validation_splits: 3
+
+governance:
+  champion_challenger:
+    min_improvement_pct: 5.0
+    max_allowable_wape: 50.0
+    max_allowable_bias_pct: 15.0

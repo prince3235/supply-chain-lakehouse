@@ -1,0 +1,40 @@
+# Supply Chain Lakehouse — Data Drift & Model Health Monitoring Configuration
+
+version: 1.0.0
+
+drift_detection:
+  algorithm: population_stability_index
+  bins: 10
+  thresholds:
+    no_drift: 0.10
+    moderate: 0.25
+    significant: 0.25
+  monitored_features:
+    - lag_1
+    - lag_7
+    - rolling_mean_7
+    - rolling_mean_30
+    - unit_price
+    - total_available
+    - daily_demand
+
+performance_monitoring:
+  frequency: daily_batch
+  kpi_thresholds:
+    wape:
+      warning_pct: 20.0
+      critical_pct: 30.0
+    mae:
+      warning_multiplier: 1.5
+      critical_multiplier: 2.5
+    forecast_bias:
+      warning_pct: 10.0
+      critical_pct: 20.0
+
+retraining_triggers:
+  auto_trigger_enabled: true
+  conditions:
+    - on_significant_data_drift
+    - on_critical_wape_breach
+    - on_critical_bias_breach
+  cool_down_days: 7
