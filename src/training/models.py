@@ -92,9 +92,11 @@ class DemandForecaster:
 
         if isinstance(X, pd.DataFrame):
             if self.feature_names:
-                # Align columns with training feature set
-                cols_to_use = [c for c in self.feature_names if c in X.columns]
-                X_mat = X[cols_to_use].to_numpy()
+                # Align columns exactly with training feature set, filling any missing with 0.0
+                aligned_df = pd.DataFrame(index=X.index)
+                for col in self.feature_names:
+                    aligned_df[col] = X[col].fillna(0.0) if col in X.columns else 0.0
+                X_mat = aligned_df.to_numpy()
             else:
                 X_mat = X.to_numpy()
         else:
