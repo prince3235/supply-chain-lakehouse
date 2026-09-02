@@ -65,3 +65,20 @@ __pycache__/
 
 # Generated Data (Phase 3)
 data/generated/
+
+# Archives & Temporary Binaries
+*.zip
+*.tar.gz
+jdk.zip
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+reports/junit/
+reports/pipeline_runs/*.json
+!reports/pipeline_runs/.gitkeep
+
+# MLflow & Experiment Tracking Local Runs
+mlruns/
+reports/ml_experiments/*/model.pkl
